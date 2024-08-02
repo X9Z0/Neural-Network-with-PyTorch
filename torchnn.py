@@ -37,6 +37,7 @@ loss_fn = nn.CrossEntropyLoss()
 
 # Training flow 
 if __name__ == "__main__": 
+    # comment from here
     for epoch in range(10): # train for 10 epochs
         for batch in dataset: 
             X,y = batch 
@@ -52,8 +53,11 @@ if __name__ == "__main__":
         print(f"Epoch:{epoch} loss is {loss.item()}")
     
     with open('model_state.pt', 'wb') as f: 
-        save(clf.state_dict(), f) 
+        save(clf.state_dict(), f)
+    # to here after training  
 
+
+    # this is for testing the model change the img_1 to img_3
     with open('model_state.pt', 'rb') as f: 
         clf.load_state_dict(load(f))  
 
